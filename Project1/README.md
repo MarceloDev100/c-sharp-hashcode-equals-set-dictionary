@@ -19,3 +19,13 @@
 * After comparing two objects, if code generated of each one is not the same, so they are different.
 
 * After comparing two objects, if code generated of each one is the same , they are probably the same, but a coincidence is not ruled out.
+
+:arrow_right: __Custom Equals and GetHashCode:__
+
+* A custom criterion can be made of when a client is equal to another one, for example.
+
+* If a Client class has Name and Email attributes, one of them or both can be chosen to be a custom criterion to identify if an object is the same as the other one. In this example, the Email was chosen for this purpose. 
+
+* The Equals and GetHashCode methods have been overriden in the Client class.
+
+:record_button: the sign (==) compares object reference whereas Equals method compares the object content.
