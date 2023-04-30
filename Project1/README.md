@@ -1,6 +1,6 @@
 ### Project1 (Equals and GetHashCode methods)
 
-:arrow_right: Pre-defined types already have implementation to that operations.
+:arrow_right: Predefined types already have implementation to that operations.
 
 :arrow_right: __Equals:__
 

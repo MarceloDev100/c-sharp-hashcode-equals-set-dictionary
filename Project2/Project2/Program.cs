@@ -1,27 +1,43 @@
-﻿namespace Project2
+﻿using Project2.Entities;
+
+namespace Project2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            SortedSet<int> a = new SortedSet<int>() { 10, 0, 2, 4, 5, 6, 8 };
-            SortedSet<int> b = new SortedSet<int>() { 5, 6, 7, 8, 9, 10 };
+            // Predefined types already have Equals and HashCode implemented.
+            HashSet<string> set = new HashSet<string>();
 
-            // union
-            SortedSet<int> c = new SortedSet<int>(a);
-            c.UnionWith(b);
-            PrintCollection(c);
+            set.Add("Maria");
+            set.Add("Alex");
 
-            // intersection
-            SortedSet<int> d = new SortedSet<int>(a);
-            d.IntersectWith(b);
-            PrintCollection(d);
+            // The content is compared.
+            // Console.WriteLine(set.Contains("Maria"));
 
-            // difference
-            SortedSet<int> e = new SortedSet<int>(a);
-            e.ExceptWith(b);
-            PrintCollection(e);
+            /*
+              How hash collections test equality?
+              - if GetHashCode and Equals are implemented: 
+                First HashCode. If it's the same, it is confirmed with Equals method
+              
+              - if GetHashCode and Equals are NOT implemented: 
+                Reference types: object references are compared. 
+                Value types : attributes values are compared.
+            */
 
+            HashSet<Product> a = new HashSet<Product>();
+            a.Add(new Product("TV", 900.00));
+            a.Add(new Product("Notebook", 1200.00));
+
+            HashSet<Point> b = new HashSet<Point>();
+            b.Add(new Point(3, 4));
+            b.Add(new Point(5, 10));
+
+            Product prod = new Product("Notebook", 1200.00);
+            Console.WriteLine(a.Contains(prod));
+
+            Point p = new Point(5, 10);
+            Console.WriteLine(b.Contains(p));
         }
 
         static void PrintCollection<T>(IEnumerable<T> collection)
